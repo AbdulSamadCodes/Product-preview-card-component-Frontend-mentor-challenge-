@@ -1,0 +1,206 @@
+/*=========================Custom Properties========================*/
+
+:root {
+  /*=========Colors========*/
+
+  --dark-cyan: hsl(158, 36%, 37%);
+  --cream: hsl(30, 38%, 92%);
+  --very-dark-blue: hsl(212, 21%, 14%);
+  --dark-grayish-blue: hsl(228, 12%, 48%);
+  --white: hsl(0, 0%, 100%);
+
+  /*=========Typography========*/
+
+  --font-family-Montserrat: "Montserrat", sans-serif;
+  --font-family-Fraunces: "Fraunces", serif;
+}
+
+/*=========================Reset===========================*/
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button,
+a,
+span,
+input {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+button,
+input {
+  background: none;
+  border: none;
+  outline: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 30px;
+  scrollbar-width: thin;
+}
+
+body {
+  background-color: var(--cream);
+  height: 100vh;
+}
+
+/*=========================Reused styles===========================*/
+
+.flex-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.grid {
+  display: grid;
+}
+
+/*=========================Main styles===========================*/
+
+.container {
+  align-items: center;
+  padding-inline: 16px;
+  height: 100%;
+}
+
+[data-desktop-img] {
+  display: none;
+}
+
+.card {
+  max-width: 375px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-inline: auto;
+}
+
+.card-content {
+  display: grid;
+  background-color: var(--white);
+  padding: 30px 16px;
+  gap: 20px;
+}
+
+.card-subtitle {
+  text-transform: uppercase;
+  font-family: var(--font-family-Montserrat);
+  font-weight: 600;
+  color: var(--dark-grayish-blue);
+  letter-spacing: 2px;
+}
+
+.card-title {
+  font-size: 32px;
+  font-family: var(--font-family-Fraunces);
+  line-height: 1;
+}
+
+.card-text {
+  font-size: 16px;
+  color: var(--dark-grayish-blue);
+  font-family: var(--font-family-Montserrat);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.card-price {
+  gap: 15px;
+}
+
+.price-primary {
+  font-size: 30px;
+  color: var(--dark-cyan);
+  font-family: var(--font-family-Fraunces);
+  font-weight: 800;
+}
+
+.price-secondary {
+  font-family: var(--font-family-Montserrat);
+  color: var(--dark-grayish-blue);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.btn {
+  border-radius: 8px;
+  background-color: var(--dark-cyan);
+  padding: 14px;
+  justify-content: center;
+  gap: 8px;
+  color: var(--white);
+  font-family: var(--font-family-Montserrat);
+  font-size: 16px;
+  font-weight: 700;
+  transition: background-color 200ms linear;
+  width: 100%;
+}
+
+.btn:is(:hover, :focus) {
+  background-color: hsl(156, 45%, 20%);
+}
+
+/*============Media queries========*/
+
+@media (min-width: 992px) {
+  .card {
+    max-width: 730px;
+    padding-block: 30px;
+  }
+
+  [data-mobile-img] {
+    display: none;
+  }
+
+  [data-desktop-img] {
+    display: block;
+  }
+
+  .card {
+    grid-template-columns: repeat(2, 1fr);
+    overflow: hidden;
+  }
+
+  .card-content {
+    padding: 50px 30px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+  }
+
+  .card-banner img {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+
+  .card-content > {
+    margin-block-start: 0;
+  }
+
+  .btn {
+    padding: 0;
+  }
+}
